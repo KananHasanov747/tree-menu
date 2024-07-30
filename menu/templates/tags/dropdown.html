@@ -1,0 +1,12 @@
+{% load tags %}
+{% if item.items.all %}
+  <button type="button" class="dropbtn">btn</button>
+  <ul>
+    {% for item in item.items.all %}
+      <li class="dropdown{% if item|is_active:request %} active{% endif %}">
+        <a href="{{ item.get_url }}">{{ item.name }}</a>
+        {% draw_dropdown item %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

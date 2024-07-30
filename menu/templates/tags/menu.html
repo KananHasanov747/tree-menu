@@ -1,0 +1,9 @@
+{% load tags %}
+{% load static %}
+<nav class="tree-menu">
+  <a href="{{ menu.get_url }}">{{ menu.name }}</a>
+  {% if menu.items.all %}
+    {% draw_dropdown menu %}
+  {% endif %}
+</nav>
+<script src="{% static 'script.js' %}"></script>
